@@ -6,7 +6,7 @@ const getProgrammeByCategory = (req,res) => {
     const {visible} = req.params;
     const filter = {};
     
-    res.header("Access-Control-Allow-Origin", "*");
+    // res.header("Access-Control-Allow-Origin", "*");
 
     if(visible === "visible")
         filter.visible = true;

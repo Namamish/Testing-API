@@ -6,6 +6,7 @@ const AdminBro = require('admin-bro');
 const AdminBroExpress = require('@admin-bro/express');
 const AdminBroMongoose = require('@admin-bro/mongoose');
 const minorProgramme = require("./models/admissions/minorProgramme.js");
+const cors = require("cors");
 
 const app = express();
 AdminBro.registerAdapter(AdminBroMongoose);
@@ -23,6 +24,11 @@ mongoose.connect('mongodb+srv://Student:Student123@cluster0.qptaqdb.mongodb.net/
 
 app.use(express.json());
 app.use(mainRouter);
+app.use(
+    cors({
+        origin: '*',
+    })
+);
 
 const adminBro = new AdminBro({
     resources: [majorProgramme,minorProgramme],
