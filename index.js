@@ -12,7 +12,7 @@ AdminBro.registerAdapter(AdminBroMongoose);
 
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/NITJ')
+mongoose.connect('mongodb+srv://Student:Student123@cluster0.qptaqdb.mongodb.net/NITJ?retryWrites=true&w=majority')
 .then(()=> {
     console.log("CONNECTION STARTED!!")
     app.listen(8080, () => console.log('AdminBro is under localhost:8080/admin'))
