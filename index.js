@@ -23,13 +23,14 @@ mongoose.connect('mongodb+srv://Student:Student123@cluster0.qptaqdb.mongodb.net/
     console.log(err);
 });
 
-app.use(express.json());
-app.use(mainRouter);
 app.use(
     cors({
         origin: '*',
     })
 );
+app.use(express.json());
+app.use(mainRouter);
+
 
 app.use(express.static(path.join(__dirname+ '/public')));
 
