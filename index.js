@@ -7,6 +7,7 @@ const AdminBroExpress = require('@admin-bro/express');
 const AdminBroMongoose = require('@admin-bro/mongoose');
 const minorProgramme = require("./models/admissions/minorProgramme.js");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 AdminBro.registerAdapter(AdminBroMongoose);
@@ -29,6 +30,12 @@ app.use(
         origin: '*',
     })
 );
+
+app.use(express.static(path.join(__dirname+ '/public')));
+
+app.get("/",(req,res)=> {
+    res.sendFile(path.join(__dirname,"/frontend/index.html"));
+})
 
 const adminBro = new AdminBro({
     resources: [majorProgramme,minorProgramme],
